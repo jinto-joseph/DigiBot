@@ -3,396 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiBuddy - Your Digital Literacy Guide</title>
-    <style>
-        :root {
-            --primary-color: #4A90E2;
-            --secondary-color: #F5F5F5;
-            --text-color: #333;
-            --font-size-large: 1.2rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f0f2f5;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .chat-container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-messages {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 15px;
-            max-width: 80%;
-            font-size: var(--font-size-large);
-        }
-
-        .bot-message {
-            background-color: var(--primary-color);
-            color: white;
-            margin-right: auto;
-        }
-
-        .user-message {
-            background-color: var(--secondary-color);
-            margin-left: auto;
-        }
-
-        .tutorial-step {
-            background-color: #E3F2FD;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .tips-container {
-            background-color: #F1F8E9;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .input-container {
-            padding: 20px;
-            background: white;
-            border-top: 1px solid #eee;
-            display: flex;
-            gap: 10px;
-        }
-
-        #user-input {
-            flex-grow: 1;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: var(--font-size-large);
-            outline: none;
-        }
-
-        #user-input:focus {
-            border-color: var(--primary-color);
-        }
-
-        button {
-            padding: 15px 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: var(--font-size-large);
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #357ABD;
-        }
-
-        .quick-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-
-        .quick-button {
-            padding: 10px 20px;
-            background-color: var(--secondary-color);
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .quick-button:hover {
-            background-color: #e0e0e0;
-        }
-
-        .controls {
-            display: flex;
-            gap: 10px;
-            padding: 10px;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-
-        .language-select {
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .voice-button {
-            background-color: #4CAF50;
-        }
-
-        .voice-button.listening {
-            background-color: #f44336;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .chat-container {
-                height: calc(100vh - 200px);
-            }
-
-            .message {
-                max-width: 90%;
-            }
-        }
-    </style>
+    <title>DigiBuddy - Your Friendly Digital Guide</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%234A90E2'/><ellipse cx='32' cy='40' rx='18' ry='12' fill='%23fff'/><ellipse cx='24' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='40' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='32' cy='46' rx='8' ry='4' fill='%23eaf6ff'/></svg>'">
 </head>
 <body>
     <div class="header">
+        <span class="bot-avatar-svg">
+            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="#4A90E2"/>
+                <ellipse cx="32" cy="40" rx="18" ry="12" fill="#fff"/>
+                <ellipse cx="24" cy="32" rx="4" ry="6" fill="#222"/>
+                <ellipse cx="40" cy="32" rx="4" ry="6" fill="#222"/>
+                <ellipse cx="32" cy="46" rx="8" ry="4" fill="#eaf6ff"/>
+            </svg>
+        </span>
         <h1>DigiBuddy</h1>
         <p>Your friendly guide to the digital world</p>
+        <div class="fun-fact" id="fun-fact"></div>
     </div>
-
     <div class="container">
         <div class="chat-container">
-            <div class="controls">
-                <select class="language-select" id="language-select">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="hi">हिंदी</option>
-                    <option value="zh">中文</option>
-                </select>
-                <button class="voice-button" id="voice-button" onclick="toggleVoice()">
-                    🎤 Voice
-                </button>
+            <div class="quick-actions">
+                <button onclick="quickAction('Learn Basics')">Learn Basics</button>
+                <button onclick="quickAction('Ask a Question')">Ask a Question</button>
+                <button onclick="quickAction('Get Help')">Get Help</button>
+                <button onclick="quickAction('Tutorials')">Tutorials</button>
+                <button onclick="quickAction('Online Safety')">Online Safety</button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot-message">
-                    Hello! I'm DigiBuddy, your friendly tech guide! How can I help you today? 😊
+                    <span class="bot-avatar-inline-svg">
+                        <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="32" fill="#4A90E2"/>
+                            <ellipse cx="32" cy="40" rx="18" ry="12" fill="#fff"/>
+                            <ellipse cx="24" cy="32" rx="4" ry="6" fill="#222"/>
+                            <ellipse cx="40" cy="32" rx="4" ry="6" fill="#222"/>
+                            <ellipse cx="32" cy="46" rx="8" ry="4" fill="#eaf6ff"/>
+                        </svg>
+                    </span>
+                    Hello there! I'm DigiBuddy, your friendly guide to all things digital. Whether you're sending your first email or troubleshooting your Wi-Fi, I'm here to help you navigate the digital world with confidence! What would you like help with today?
                 </div>
-            </div>
-            <div class="quick-buttons">
-                <button class="quick-button">What is a browser?</button>
-                <button class="quick-button">How to create email?</button>
-                <button class="quick-button">WiFi help</button>
-                <button class="quick-button">Social media guide</button>
-                <button class="quick-button">Tech tips</button>
             </div>
             <div class="input-container">
                 <input type="text" id="user-input" placeholder="Type your question here..." aria-label="Type your question">
                 <button onclick="sendMessage()">Send</button>
+                <button id="voice-btn" onclick="toggleVoice()">🎤 Voice</button>
             </div>
         </div>
     </div>
-
-    <script>
-        const chatMessages = document.getElementById('chat-messages');
-        const userInput = document.getElementById('user-input');
-        const quickButtons = document.querySelectorAll('.quick-button');
-        const languageSelect = document.getElementById('language-select');
-        const voiceButton = document.getElementById('voice-button');
-        let recognition = null;
-        let isListening = false;
-
-        // Initialize speech recognition
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-
-            recognition.onresult = function(event) {
-                const transcript = event.results[0][0].transcript;
-                userInput.value = transcript;
-                sendMessage();
-            };
-
-            recognition.onend = function() {
-                isListening = false;
-                voiceButton.classList.remove('listening');
-            };
-        }
-
-        function toggleVoice() {
-            if (!recognition) {
-                alert('Speech recognition is not supported in your browser.');
-                return;
-            }
-
-            if (isListening) {
-                recognition.stop();
-            } else {
-                recognition.start();
-                isListening = true;
-                voiceButton.classList.add('listening');
-            }
-        }
-
-        // Add event listeners for quick buttons
-        quickButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                userInput.value = button.textContent;
-                sendMessage();
-            });
-        });
-
-        // Add event listener for Enter key
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        function addMessage(message, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addTutorialSteps(steps) {
-            const tutorialDiv = document.createElement('div');
-            tutorialDiv.className = 'tutorial-steps';
-            
-            if (Array.isArray(steps)) {
-                steps.forEach(step => {
-                    const stepDiv = document.createElement('div');
-                    stepDiv.className = 'tutorial-step';
-                    stepDiv.textContent = step;
-                    tutorialDiv.appendChild(stepDiv);
-                });
-            } else {
-                // Handle nested tutorials (e.g., WhatsApp, Facebook)
-                Object.entries(steps).forEach(([app, appSteps]) => {
-                    const appDiv = document.createElement('div');
-                    appDiv.className = 'tutorial-step';
-                    appDiv.innerHTML = `<strong>${app}:</strong>`;
-                    tutorialDiv.appendChild(appDiv);
-                    
-                    appSteps.forEach(step => {
-                        const stepDiv = document.createElement('div');
-                        stepDiv.className = 'tutorial-step';
-                        stepDiv.style.marginLeft = '20px';
-                        stepDiv.textContent = step;
-                        tutorialDiv.appendChild(stepDiv);
-                    });
-                });
-            }
-            
-            chatMessages.appendChild(tutorialDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addTips(tips) {
-            const tipsDiv = document.createElement('div');
-            tipsDiv.className = 'tips-container';
-            
-            Object.entries(tips).forEach(([category, categoryTips]) => {
-                const categoryDiv = document.createElement('div');
-                categoryDiv.innerHTML = `<strong>${category}:</strong>`;
-                tipsDiv.appendChild(categoryDiv);
-                
-                categoryTips.forEach(tip => {
-                    const tipDiv = document.createElement('div');
-                    tipDiv.style.marginLeft = '20px';
-                    tipDiv.textContent = tip;
-                    tipsDiv.appendChild(tipDiv);
-                });
-            });
-            
-            chatMessages.appendChild(tipsDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        async function sendMessage() {
-            const message = userInput.value.trim();
-            if (!message) return;
-
-            // Add user message to chat
-            addMessage(message, true);
-            userInput.value = '';
-
-            try {
-                const response = await fetch('http://localhost:5000/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message,
-                        language: languageSelect.value,
-                        is_voice: isListening
-                    }),
-                });
-
-                const data = await response.json();
-                addMessage(data.response);
-
-                if (data.has_tutorial && data.tutorial) {
-                    addTutorialSteps(data.tutorial);
-                }
-
-                if (data.has_tips && data.tips) {
-                    addTips(data.tips);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                addMessage('Sorry, I\'m having trouble connecting. Please try again later.');
-            }
-        }
-    </script>
+    <footer>
+        <p>Made with ❤️ for digital learners. <a href="https://github.com/your-username/digibuddy-chatbot" target="_blank">GitHub</a></p>
+    </footer>
+    <script src="/static/main.js"></script>
 </body>
-</html>
+</html> 
