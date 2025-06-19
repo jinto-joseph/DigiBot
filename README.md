@@ -1,7 +1,7 @@
 # 🤖 DigiBuddy: Your Friendly Digital Literacy Chatbot
 
 <p align="center">
-  <img src="data:image/svg+xml;utf8,<svg width='120' height='120' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'><circle cx='32' cy='32' r='32' fill='%234A90E2'/><ellipse cx='32' cy='40' rx='18' ry='12' fill='%23fff'/><ellipse cx='24' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='40' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='32' cy='46' rx='8' ry='4' fill='%23eaf6ff'/></svg>" alt="DigiBuddy Logo" width="120" height="120" />
+  <img src="./digibuddy.svg" alt="DigiBuddy Logo" width="120" height="120" />
 </p>
 
 Welcome to **DigiBuddy** – an interactive, multilingual, and voice-enabled chatbot designed to help parents, seniors, and digital beginners master the online world with confidence and a smile! 🌍✨
