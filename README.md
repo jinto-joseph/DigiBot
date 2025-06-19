@@ -63,10 +63,7 @@ Welcome to **DigiBuddy** – an interactive, multilingual, and voice-enabled cha
 
 ## 📸 Screenshots
 
-> _Add your screenshots here!_
-> 
-> ![Screenshot 1](./screenshot1.png)
-> ![Screenshot 2](./screenshot2.png)
+> ![Screenshot 1](./Screenshot 2025-06-19 172814.png)
 
 ---
 
