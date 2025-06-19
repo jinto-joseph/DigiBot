@@ -73,7 +73,7 @@ Welcome to **DigiBuddy** – an interactive, multilingual, and voice-enabled cha
 
 ## 👩‍💻 Credits
 
-- Created with ❤️ by [Your Name]
+- Created with ❤️ by Jinto Joseph 
 - Powered by open web standards, Wikipedia, and a passion for digital inclusion
 
 ---
