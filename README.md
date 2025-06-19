@@ -23,7 +23,7 @@ Welcome to **DigiBuddy** – an interactive, multilingual, and voice-enabled cha
 
 ## 🌈 Live Demo
 
-> **Try it out:** [your-live-link-here](https://yourusername.github.io/digibuddy-chatbot/)
+> **Try it out:** [DigiBot](https://jinto-joseph.github.io/DigiBot/)
 
 ---
 
