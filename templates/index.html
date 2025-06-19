@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiBuddy - Your Friendly Digital Guide</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%234A90E2'/><ellipse cx='32' cy='40' rx='18' ry='12' fill='%23fff'/><ellipse cx='24' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='40' cy='32' rx='4' ry='6' fill='%23222'/><ellipse cx='32' cy='46' rx='8' ry='4' fill='%23eaf6ff'/></svg>'">
+</head>
+<body>
+    <div class="header">
+        <span class="bot-avatar-svg">
+            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="#4A90E2"/>
+                <ellipse cx="32" cy="40" rx="18" ry="12" fill="#fff"/>
+                <ellipse cx="24" cy="32" rx="4" ry="6" fill="#222"/>
+                <ellipse cx="40" cy="32" rx="4" ry="6" fill="#222"/>
+                <ellipse cx="32" cy="46" rx="8" ry="4" fill="#eaf6ff"/>
+            </svg>
+        </span>
+        <h1>DigiBuddy</h1>
+        <p>Your friendly guide to the digital world</p>
+        <div class="fun-fact" id="fun-fact"></div>
+    </div>
+    <div class="container">
+        <div class="chat-container">
+            <div class="quick-actions">
+                <button onclick="quickAction('Learn Basics')">Learn Basics</button>
+                <button onclick="quickAction('Ask a Question')">Ask a Question</button>
+                <button onclick="quickAction('Get Help')">Get Help</button>
+                <button onclick="quickAction('Tutorials')">Tutorials</button>
+                <button onclick="quickAction('Online Safety')">Online Safety</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <span class="bot-avatar-inline-svg">
+                        <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="32" fill="#4A90E2"/>
+                            <ellipse cx="32" cy="40" rx="18" ry="12" fill="#fff"/>
+                            <ellipse cx="24" cy="32" rx="4" ry="6" fill="#222"/>
+                            <ellipse cx="40" cy="32" rx="4" ry="6" fill="#222"/>
+                            <ellipse cx="32" cy="46" rx="8" ry="4" fill="#eaf6ff"/>
+                        </svg>
+                    </span>
+                    Hello there! I'm DigiBuddy, your friendly guide to all things digital. Whether you're sending your first email or troubleshooting your Wi-Fi, I'm here to help you navigate the digital world with confidence! What would you like help with today?
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Type your question here..." aria-label="Type your question">
+                <button onclick="sendMessage()">Send</button>
+                <button id="voice-btn" onclick="toggleVoice()">🎤 Voice</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Made with ❤️ for digital learners. <a href="https://github.com/your-username/digibuddy-chatbot" target="_blank">GitHub</a></p>
+    </footer>
+    <script src="/static/main.js"></script>
+</body>
+</html> 

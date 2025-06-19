@@ -1,89 +1,85 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_cors import CORS
 import json
 import random
 import os
+from transformers import pipeline, Conversation
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
 # Load knowledge base
 with open('knowledge_base.json', 'r', encoding='utf-8') as f:
     knowledge_base = json.load(f)
 
+# Hugging Face conversational model
+chatbot = pipeline('conversational', model='microsoft/DialoGPT-medium')
+
 @app.route('/')
 def home():
-    return send_file('index.html')
+    return render_template('index.html')
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json
-    user_message = data.get('message', '').lower()
-    language = data.get('language', 'en')
-    is_voice = data.get('is_voice', False)
-    
-    # Find matching response
-    response_data = find_response(user_message, language, is_voice)
-    
-    return jsonify(response_data)
+    user_message = data.get('message', '').strip()
+    # Try FAQ/tutorial match first
+    response, extra = find_response(user_message)
+    if not response:
+        # Fallback to Hugging Face conversational model
+        conv = Conversation(user_message)
+        hf_response = chatbot(conv)
+        response = hf_response.generated_responses[-1]
+        response = add_personality(response)
+    return jsonify({'response': response, **extra})
 
-def find_response(message, language='en', is_voice=False):
-    # Check for exact matches in knowledge base
-    for intent in knowledge_base['intents']:
-        if message in intent['patterns']:
-            response = random.choice(intent['responses'])
-            response_data = {
-                'response': response,
-                'bot_name': 'DigiBuddy',
-                'has_tutorial': 'tutorial' in intent,
-                'has_tips': 'tips' in intent
-            }
-            
-            # Add tutorial steps if available
-            if 'tutorial' in intent:
-                response_data['tutorial'] = intent['tutorial']
-            
-            # Add tips if available
-            if 'tips' in intent:
-                response_data['tips'] = intent['tips']
-            
-            return response_data
-    
-    # Check for partial matches
+def find_response(message):
+    message_lower = message.lower()
     for intent in knowledge_base['intents']:
         for pattern in intent['patterns']:
-            if pattern in message:
+            if pattern in message_lower:
                 response = random.choice(intent['responses'])
-                response_data = {
-                    'response': response,
-                    'bot_name': 'DigiBuddy',
-                    'has_tutorial': 'tutorial' in intent,
-                    'has_tips': 'tips' in intent
-                }
-                
+                extra = {}
                 if 'tutorial' in intent:
-                    response_data['tutorial'] = intent['tutorial']
-                
+                    extra['tutorial'] = intent['tutorial']
                 if 'tips' in intent:
-                    response_data['tips'] = intent['tips']
-                
-                return response_data
-    
-    # Default response if no match found
-    return {
-        'response': random.choice(knowledge_base['default_responses']),
-        'bot_name': 'DigiBuddy',
-        'has_tutorial': False,
-        'has_tips': False
-    }
+                    extra['tips'] = intent['tips']
+                return response, extra
+    return None, {}
 
-@app.route('/api/languages', methods=['GET'])
-def get_languages():
-    return jsonify(knowledge_base['languages'])
+def add_personality(text):
+    # Add humor, emoji, and warmth
+    fun_lines = [
+        "(Psst! You're doing great! 🚀)",
+        "Tech can be tricky, but you're trickier! 😄",
+        "If Wi-Fi had feelings, it'd be jealous of your skills! 📶✨",
+        "Remember: Every click is a step forward! 👣",
+        "Learning is fun at any age! 🎉"
+    ]
+    return f"{text} {random.choice(fun_lines)}"
 
-@app.route('/api/voice-commands', methods=['GET'])
-def get_voice_commands():
-    return jsonify(knowledge_base['voice_commands'])
+@app.route('/api/faq', methods=['GET'])
+def get_faq():
+    faqs = [i['patterns'][0] for i in knowledge_base['intents'] if i['tag'] != 'motivation']
+    return jsonify(faqs)
+
+@app.route('/api/tutorials', methods=['GET'])
+def get_tutorials():
+    tutorials = {i['tag']: i.get('tutorial', None) for i in knowledge_base['intents'] if 'tutorial' in i}
+    return jsonify(tutorials)
+
+@app.route('/api/funfact', methods=['GET'])
+def fun_fact():
+    facts = knowledge_base.get('fun_facts', [
+        "Did you know? The first email was sent in 1971! 📧",
+        "Fun fact: More than 4.5 billion people use the internet! 🌍",
+        "Tip: Always use strong passwords to stay safe online! 🔒"
+    ])
+    return jsonify({'fact': random.choice(facts)})
 
 if __name__ == '__main__':
     app.run(debug=True) 

@@ -16,14 +16,12 @@
                 "A browser is like a window to the internet! Just like you use a window to look outside, a browser helps you look at websites. Popular browsers include Chrome, Firefox, and Edge. Would you like to learn how to use one? 🌐",
                 "Think of a browser as your digital library card - it helps you access all the wonderful information on the internet! I can show you how to use it step by step. 📚"
             ],
-            "tutorial": {
-                "steps": [
-                    "Open your browser (Chrome, Firefox, or Edge)",
-                    "Look at the address bar at the top",
-                    "Type 'www.google.com' and press Enter",
-                    "Now you can search for anything you want!"
-                ]
-            }
+            "tutorial": [
+                "Open your browser (Chrome, Firefox, or Edge)",
+                "Look at the address bar at the top",
+                "Type 'www.google.com' and press Enter",
+                "Now you can search for anything you want!"
+            ]
         },
         {
             "tag": "email_help",
@@ -32,16 +30,14 @@
                 "Creating an email account is easy! Let me guide you through it step by step. Would you like to create a Gmail account? I'll walk you through each step with clear instructions! 📧",
                 "Setting up an email is like getting your own digital mailbox! I can help you create one - just let me know if you prefer Gmail, Outlook, or another service. 📬"
             ],
-            "tutorial": {
-                "steps": [
-                    "Go to gmail.com",
-                    "Click 'Create Account'",
-                    "Fill in your name and choose a username",
-                    "Create a strong password",
-                    "Add your phone number for security",
-                    "Accept the terms and create your account!"
-                ]
-            }
+            "tutorial": [
+                "Go to gmail.com",
+                "Click 'Create Account'",
+                "Fill in your name and choose a username",
+                "Create a strong password",
+                "Add your phone number for security",
+                "Accept the terms and create your account!"
+            ]
         },
         {
             "tag": "wifi_help",
@@ -50,15 +46,13 @@
                 "Don't worry! Let's fix your WiFi connection together. First, let's check if your WiFi is turned on. Can you see the WiFi symbol on your device? 🌐",
                 "WiFi troubles? I've got your back! Let's solve this step by step. First, try turning your WiFi off and on again. Would you like me to guide you through more troubleshooting steps? 🔧"
             ],
-            "tutorial": {
-                "steps": [
-                    "Check if WiFi is turned on",
-                    "Restart your WiFi router",
-                    "Make sure you're close to the router",
-                    "Check if the password is correct",
-                    "Try connecting to a different network"
-                ]
-            }
+            "tutorial": [
+                "Check if WiFi is turned on",
+                "Restart your WiFi router",
+                "Make sure you're close to the router",
+                "Check if the password is correct",
+                "Try connecting to a different network"
+            ]
         },
         {
             "tag": "social_media",
@@ -67,24 +61,14 @@
                 "Social media is a great way to stay connected with family and friends! I can help you set up and use apps like WhatsApp, Facebook, or Instagram. Which one would you like to learn about? 📱",
                 "Social media is like a digital gathering place where you can share photos, messages, and stay in touch with loved ones. Let me show you how to get started! 💫"
             ],
-            "tutorial": {
-                "whatsapp": [
-                    "Download WhatsApp from your app store",
-                    "Open the app and tap 'Agree'",
-                    "Enter your phone number",
-                    "Verify your number with the code sent",
-                    "Add your name and profile picture",
-                    "Start chatting with friends and family!"
-                ],
-                "facebook": [
-                    "Go to facebook.com",
-                    "Click 'Create New Account'",
-                    "Enter your name and email",
-                    "Create a password",
-                    "Add your birthday and gender",
-                    "Add friends and start sharing!"
-                ]
-            }
+            "tutorial": [
+                "Download WhatsApp from your app store",
+                "Open the app and tap 'Agree'",
+                "Enter your phone number",
+                "Verify your number with the code sent",
+                "Add your name and profile picture",
+                "Start chatting with friends and family!"
+            ]
         },
         {
             "tag": "online_payment",
@@ -93,16 +77,14 @@
                 "Online payments make life so much easier! I can guide you through setting up and making secure online payments. Would you like to learn about a specific payment method? 💳",
                 "Paying bills online is like having a digital wallet! It's safe and convenient. Let me show you how to get started with online payments. 🏦"
             ],
-            "tutorial": {
-                "steps": [
-                    "Set up online banking with your bank",
-                    "Add your bills to your account",
-                    "Choose the bill you want to pay",
-                    "Enter the amount",
-                    "Review and confirm the payment",
-                    "Save the receipt for your records"
-                ]
-            }
+            "tutorial": [
+                "Set up online banking with your bank",
+                "Add your bills to your account",
+                "Choose the bill you want to pay",
+                "Enter the amount",
+                "Review and confirm the payment",
+                "Save the receipt for your records"
+            ]
         },
         {
             "tag": "tech_tips",
@@ -159,5 +141,12 @@
         "repeat": "Repeat that",
         "help": "I need help",
         "stop": "Stop tutorial"
-    }
+    },
+    "fun_facts": [
+        "Did you know? The first email was sent in 1971! 📧",
+        "Fun fact: More than 4.5 billion people use the internet! 🌍",
+        "Tip: Always use strong passwords to stay safe online! 🔒",
+        "The first website ever created is still online! Check out info.cern.ch",
+        "Ctrl + Z is the universal undo shortcut. Try it! 😉"
+    ]
 } 
